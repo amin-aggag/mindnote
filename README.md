@@ -1,5 +1,9 @@
 # IlmMind - The second brain app made for Islamic knowledge
 
+How to run my app:
+
+Run "npm run dev" & "npx convex dev"
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
