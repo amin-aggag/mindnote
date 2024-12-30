@@ -24,7 +24,7 @@ export const Logo = () => {
         alt="Logo"
         className="hidden dark:block"
       />
-      IlmMind
+      <span className="font-medium">IlmMind</span>
     </div>
   )
 }
