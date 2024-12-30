@@ -1,15 +1,23 @@
 "use client";
 
-import { ChevronsLeft, MenuIcon } from "lucide-react";
+import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, ElementType, RefObject, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 import { UserItem } from "./user-item";
+import { useMutation, } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { Item } from "./item";
+import { toast } from "sonner";
+import { createPage } from "@/convex/documents";
+import { DocumentList } from "./document-list";
 
 export const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const createPage = useMutation(api.documents.createPage);
+  const createFolder = useMutation(api.documents.createFolder);
 
   const isResizingRef = useRef<boolean>(false);
   const sidebarRef = useRef<HTMLElement>(null);
@@ -92,6 +100,26 @@ export const Navigation = () => {
     }
   }, [pathname, isMobile])
 
+  const handleCreatePage = () => {
+    const promise = createPage( {title: "Untitled page"});
+
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Failed to create a new note."
+    })
+  }
+
+  const handleCreateFolder = () => {
+    const promise = createFolder( {title: "Untitled folder"});
+
+    toast.promise(promise, {
+      loading: "Creating a new folder...",
+      success: "New folder created!",
+      error: "Failed to create a new folder."
+    })
+  }
+
   return (
     <>
       <aside
@@ -114,9 +142,30 @@ export const Navigation = () => {
         </div>
         <div>
           <UserItem/>
+          <Item 
+            label="Search"
+            icon={Search}
+            isSearch
+            onClick={() => {}}
+          />
+          <Item 
+            label="Settings"
+            icon={Settings}
+            onClick={() => {}}
+          />
+          <Item 
+           onClick={handleCreatePage}
+           label="New page"
+           icon={PlusCircle}
+          />
+          <Item 
+           onClick={handleCreateFolder}
+           label="New folder"
+           icon={PlusCircle}
+          />
         </div>
         <div className="mt-4">
-          Documents
+          <DocumentList />
         </div>
         <div
         onMouseDown={handleMouseDown}
