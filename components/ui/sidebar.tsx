@@ -141,7 +141,7 @@ const SidebarProvider = React.forwardRef<
               } as React.CSSProperties
             }
             className={cn(
-              "group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
+              "group/sidebar-wrapper flex w-full has-[[data-variant=inset]]:bg-sidebar",
               className
             )}
             ref={ref}
@@ -492,7 +492,7 @@ const SidebarMenu = React.forwardRef<
   <ul
     ref={ref}
     data-sidebar="menu"
-    className={cn("flex w-full ml-2 min-w-0 flex-col gap-1 text-muted-foreground font-medium", className)}
+    className={cn("flex w-full ml-2 min-w-0 flex-col gap-[0px] text-muted-foreground font-medium", className)}
     {...props}
   />
 ))

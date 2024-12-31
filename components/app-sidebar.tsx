@@ -20,10 +20,6 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-type folderStructure = [
-
-]
-
 // This is sample data.
 const data = {
   changes: [
@@ -113,7 +109,6 @@ export default function Tree({ item }: { item: string | any[] }) {
         isActive={name === "button.tsx"}
         className="data-[active=true]:bg-transparent"
       >
-        <File />
         {name}
       </SidebarMenuButton>
     )

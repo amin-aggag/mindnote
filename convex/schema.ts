@@ -1,5 +1,11 @@
 import { defineSchema, defineTable } from "convex/server"
-import { v } from "convex/values"
+import { v, VObject } from "convex/values"
+
+type baseFolderStructure = [
+  folderName: string,
+  subFolders?: baseFolderStructure,
+  files?: string
+]
 
 export default defineSchema({
   documents: defineTable({
@@ -16,9 +22,8 @@ export default defineSchema({
   userDocInfo: defineTable({
     userId: v.string(),
     title: v.string(),
-    graphConnections: v.object(),
-    folderStructure: v.object(),
+    graphConnections: v.object({a: "abc"}),
+    folderStructure: v.object([]),
   })
     .index("by_user", ["userId"])
-    .index("by_user_parent", ["userId", "parentFolder"])
 })

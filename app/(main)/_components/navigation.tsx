@@ -17,20 +17,6 @@ import Tree from "@/components/app-sidebar";
 
 // This is sample data.
 const data = {
-  changes: [
-    {
-      file: "README.md",
-      state: "M",
-    },
-    {
-      file: "api/hello/route.ts",
-      state: "U",
-    },
-    {
-      file: "app/layout.tsx",
-      state: "M",
-    },
-  ],
   tree: [
     [
       "app",
@@ -50,12 +36,6 @@ const data = {
     ],
     ["lib", ["util.ts"]],
     ["public", "favicon.ico", "vercel.svg"],
-    ".eslintrc.json",
-    ".gitignore",
-    "next.config.js",
-    "tailwind.config.js",
-    "package.json",
-    "README.md",
   ],
 }
 
