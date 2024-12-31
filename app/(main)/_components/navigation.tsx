@@ -43,7 +43,7 @@ export const Navigation = () => {
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const createPage = useMutation(api.documents.createPage);
-  const createFolder = useMutation(api.documents.createFolder);
+  // const createFolder = useMutation(api.documents.createFolder);
 
   const isResizingRef = useRef<boolean>(false);
   const sidebarRef = useRef<HTMLElement>(null);
@@ -136,15 +136,15 @@ export const Navigation = () => {
     })
   }
 
-  const handleCreateFolder = () => {
-    const promise = createFolder( {title: "Untitled folder"});
+  // const handleCreateFolder = () => {
+  //   const promise = createFolder( {title: "Untitled folder"});
 
-    toast.promise(promise, {
-      loading: "Creating a new folder...",
-      success: "New folder created!",
-      error: "Failed to create a new folder."
-    })
-  }
+  //   toast.promise(promise, {
+  //     loading: "Creating a new folder...",
+  //     success: "New folder created!",
+  //     error: "Failed to create a new folder."
+  //   })
+  // }
 
   return (
     <>
@@ -184,21 +184,21 @@ export const Navigation = () => {
            label="New page"
            icon={PlusCircle}
           />
-          <Item 
+          {/* <Item
            onClick={handleCreateFolder}
            label="New folder"
            icon={PlusCircle}
-          />
+          /> */}
         </div>
         <div className="mt-4">
           <DocumentList/>
-          <SidebarProvider>
+          {/* <SidebarProvider>
             <SidebarMenu>
               {data.tree.map((item, index) => (
                 <Tree key={index} item={item} />
               ))}
             </SidebarMenu>
-          </SidebarProvider>
+          </SidebarProvider> */}
         </div>
         <div
         onMouseDown={handleMouseDown}

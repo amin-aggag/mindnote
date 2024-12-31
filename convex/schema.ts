@@ -12,18 +12,12 @@ export default defineSchema({
     userId: v.string(),
     title: v.string(),
     isArchived: v.boolean(),
-    isFolder: v.boolean(),
-    parentFolder: v.optional(v.string()),
+    parentDocument: v.optional(v.string()),
+    content: v.optional(v.string()),
+    coverImage: v.optional(v.string()),
     icon: v.optional(v.string()),
+    isPublished: v.boolean()
   })
     .index("by_user", ["userId"])
-    .index("by_user_parent", ["userId", "parentFolder"]),
-
-  userDocInfo: defineTable({
-    userId: v.string(),
-    title: v.string(),
-    graphConnections: v.object({a: "abc"}),
-    folderStructure: v.object([]),
-  })
-    .index("by_user", ["userId"])
+    .index("by_user_parent", ["userId", "parentDocument"]),
 })

@@ -1,3 +1,4 @@
+/* trunk-ignore-all(prettier) */
 "use client";
 
 import { api } from "@/convex/_generated/api";
@@ -9,17 +10,15 @@ import { useState } from "react";
 import { Item } from "./item";
 import { cn } from "@/lib/utils";
 import { FileIcon } from "lucide-react";
-import Tree, { AppSidebar } from "@/components/app-sidebar";
-import { SidebarMenu, SidebarProvider } from "@/components/ui/sidebar";
 
 interface DocumentListProps {
-  parentFolderId?: Id<"documents">;
+  parentDocumentId?: Id<"documents">;
   level?: number;
-  data?: Doc<"documents">;
+  data?: Doc<"documents">[];
 }
 
 export const DocumentList = ({
-  parentFolderId,
+  parentDocumentId,
   level = 0,
 }: DocumentListProps) => {
   const params = useParams();
@@ -35,13 +34,14 @@ export const DocumentList = ({
   }
 
   const documents = useQuery(api.documents.getSidebar, {
-    parentFolder: parentFolderId
+    parentDocument: parentDocumentId
   });
 
   const onRedirect = (documentId: string) => {
     router.push(`/documents/${documentId}`);
   }
 
+  // In Convex, a type of undefined means it's loading. A failed query will return NULL instead. This is why a comparison to undefined is made for loading the skeleton. - Me 31/12/24
   if (documents === undefined) {
     return (
       <>
@@ -68,7 +68,7 @@ export const DocumentList = ({
       >
         No pages inside
       </p>
-      {/* {documents.map((document) => {
+      {documents?.map((document) => (
         <div key={document._id}>
           <Item
             id={document._id}
@@ -81,15 +81,15 @@ export const DocumentList = ({
             onExpand={() => onExpand(document._id)}
             expanded={expanded[document._id]}
           />
+          {/* if the current document_id is expanded (which is computed by seeing if it's Id in the expanded array is set to true) render another component inside of it recursively*/}
           {expanded[document._id] && (
             <DocumentList
-              parentFolderId={document._id}
+              parentDocumentId={document._id}
               level={level + 1}
             />
           )}
         </div>
-      })} */}
-      
+      ))}
     </>
   )
 }
