@@ -211,13 +211,13 @@ export const restore = mutation({
       if (parent?.isArchived) {
         options.parentDocument = undefined;
       }
-
-      const document = await ctx.db.patch(args.id, options);
-
-      recursiveRestore(args.id);
-
-      return document;
     }
+
+    const document = await ctx.db.patch(args.id, options);
+
+    recursiveRestore(args.id);
+
+    return document;
   }
 });
 
