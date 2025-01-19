@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings } from "lucide-react";
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Trash } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, ElementType, RefObject, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -8,12 +8,18 @@ import { cn } from "@/lib/utils";
 import { UserItem } from "./user-item";
 import { useMutation, } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent
+} from "@/components/ui/popover";
 import { Item } from "./item";
 import { toast } from "sonner";
 import { createPage } from "@/convex/documents";
 import { DocumentList } from "./document-list";
 import { SidebarMenu, SidebarProvider } from "@/components/ui/sidebar";
 import Tree from "@/components/app-sidebar";
+import { TrashBox } from "./trashbox";
 
 // This is sample data.
 const data = {
@@ -197,6 +203,17 @@ export const Navigation = () => {
           icon={Plus}
           label="Add a page"
           />
+          <Popover>
+            <PopoverTrigger className="w-full mt-4">
+              <Item label="Trash" icon={Trash} />
+            </PopoverTrigger>
+            <PopoverContent
+              className="p-0 w-72"
+              side={isMobile ? "bottom" : "right"}
+            >
+              <TrashBox/>
+            </PopoverContent>
+          </Popover>
           {/* <SidebarProvider>
             <SidebarMenu>
               {data.tree.map((item, index) => (
