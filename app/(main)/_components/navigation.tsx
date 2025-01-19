@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronsLeft, MenuIcon, PlusCircle, Search, Settings } from "lucide-react";
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
 import React, { ElementRef, ElementType, RefObject, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
@@ -192,6 +192,11 @@ export const Navigation = () => {
         </div>
         <div className="mt-4">
           <DocumentList/>
+          <Item
+          onClick={handleCreatePage}
+          icon={Plus}
+          label="Add a page"
+          />
           {/* <SidebarProvider>
             <SidebarMenu>
               {data.tree.map((item, index) => (
