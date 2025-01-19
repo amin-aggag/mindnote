@@ -20,6 +20,7 @@ import { DocumentList } from "./document-list";
 import { SidebarMenu, SidebarProvider } from "@/components/ui/sidebar";
 import Tree from "@/components/app-sidebar";
 import { TrashBox } from "./trashbox";
+import { useSearch } from "@/hooks/use-search";
 
 // This is sample data.
 const data = {
@@ -46,6 +47,7 @@ const data = {
 }
 
 export const Navigation = () => {
+  const search = useSearch();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const createPage = useMutation(api.documents.createPage);
@@ -178,7 +180,7 @@ export const Navigation = () => {
             label="Search"
             icon={Search}
             isSearch
-            onClick={() => {}}
+            onClick={search.onOpen}
           />
           <Item 
             label="Settings"
