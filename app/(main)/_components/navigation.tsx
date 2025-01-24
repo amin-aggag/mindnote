@@ -21,6 +21,7 @@ import { SidebarMenu, SidebarProvider } from "@/components/ui/sidebar";
 import Tree from "@/components/app-sidebar";
 import { TrashBox } from "./trashbox";
 import { useSearch } from "@/hooks/use-search";
+import { useSettings } from "@/hooks/use-settings";
 
 // This is sample data.
 const data = {
@@ -47,6 +48,7 @@ const data = {
 }
 
 export const Navigation = () => {
+  const settings = useSettings();
   const search = useSearch();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -185,7 +187,7 @@ export const Navigation = () => {
           <Item 
             label="Settings"
             icon={Settings}
-            onClick={() => {}}
+            onClick={settings.onOpen}
           />
           <Item 
            onClick={handleCreatePage}
