@@ -20,4 +20,11 @@ export default defineSchema({
   })
     .index("by_user", ["userId"])
     .index("by_user_parent", ["userId", "parentDocument"]),
+  files: defineTable({
+    userId: v.string(),
+    title: v.string(),
+    storageId: v.optional(v.string()),
+  })
+    .index("by_user", ["userId"])
+    .index("by_storage_id", ["storageId"]),
 })
