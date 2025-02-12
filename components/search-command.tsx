@@ -7,17 +7,21 @@ import { useQuery } from "convex/react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
 
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+
 import {
   CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-  CommandList
+  CommandList,
+  Command
 } from "@/components/ui/command";
 
 import { useSearch } from "@/hooks/use-search";
 import { api } from "@/convex/_generated/api";
+import { DialogTitle } from "./ui/dialog";
 
 export const SearchCommand = () => {
   const { user } = useUser();
@@ -57,16 +61,20 @@ export const SearchCommand = () => {
 
   return (
     <CommandDialog open={isOpen} onOpenChange={onClose}>
+      <VisuallyHidden>
+        <DialogTitle></DialogTitle>
+      </VisuallyHidden>
       <CommandInput
         placeholder={`Search ${user?.fullName}'s IlmMind...`}
-      />
+        />
       <CommandList>
         <CommandEmpty>No results found</CommandEmpty>
         <CommandGroup heading="documents">
           {documents?.map((document) => (
             <CommandItem
-              key={document._id}
-              value={`${document._id}-${document.title}`}
+            key={document._id}
+            // was value={`${document._id}-${document.title}`} before
+              value={`${document._id}`}
               title={document.title}
               onSelect={onSelect}
             >
