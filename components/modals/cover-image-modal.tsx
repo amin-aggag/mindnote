@@ -130,7 +130,7 @@ export const CoverImageModal = () => {
   const { getRootProps, acceptedFiles, getInputProps, isDragActive } = reactUseDropZone({ onDrop });
 
   const selectedFile = acceptedFiles[0];
-  console.log(selectedFile);
+  // console.log(selectedFile);
 
   return (
     <Dialog open={coverImage.isOpen} onOpenChange={coverImage.onClose}>

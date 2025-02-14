@@ -377,6 +377,34 @@ export const generateUploadUrl = mutation({
   }
 });
 
+export const getFileUrl = query({
+  args: {
+    documentId: v.id("documents"),
+    storageId: v.id("_storage")
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    const userId = identity.subject;
+
+    const existingDocument = await ctx.db.get(args.documentId);
+
+    if (!existingDocument) {
+      throw new Error("Not found")
+    }
+
+    if (existingDocument.userId !== userId) {
+      throw new Error("Unauthorised");
+    }
+
+    return await ctx.storage.getUrl(args.storageId as Id<"_storage">);
+  },
+});
+
 export const getCoverImageUrl = query({
   args: { documentId: v.id("documents") },
   handler: async (ctx, args) => {
