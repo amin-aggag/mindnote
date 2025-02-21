@@ -31,6 +31,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useParams } from "next/navigation";
 import { Button } from "../ui/button";
 import { get } from "http";
+// import { UploadButton } from "../ui/uploadthing";
 
 
 export const CoverImageModal = () => {
@@ -122,6 +123,11 @@ export const CoverImageModal = () => {
       imageInput.current!.value = "";
     }
   }
+
+  // async function handleSendImage(event: FormEvent) {
+  //   event.preventDefault();
+
+  // }
 
   const onDrop = useCallback((acceptedFiles: any) => {
 

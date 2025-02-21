@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import React from "react";
 import { Navigation } from "./_components/navigation";
 import { SearchCommand } from "@/components/search-command";
+import { PDFView } from "@/components/ui/pdfView";
 
 const MainLayout = ({
   children
@@ -34,6 +35,7 @@ const MainLayout = ({
         <SearchCommand/>
         {children}
       </main>
+      <PDFView className="mt-40 flex-1 h-[auto] overflow-y-auto"/>
     </div>
    );
 }

@@ -1,4 +1,4 @@
-import { Toaster } from "sonner"
+import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -6,6 +6,10 @@ import "./globals.css";
 import { ThemeProvider } from "./(marketing)/_components/providers.tsx/theme-provider";
 import { ConvexClientProvider } from "@/components/providers/convex-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
+
+// import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+// import { extractRouterConfig } from "uploadthing/server";
+// import { ourFileRouter } from "./api/uploadthing/core";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

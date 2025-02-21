@@ -379,29 +379,34 @@ export const generateUploadUrl = mutation({
 
 export const getFileUrl = query({
   args: {
-    documentId: v.id("documents"),
     storageId: v.id("_storage")
   },
   handler: async (ctx, args) => {
-    const identity = await ctx.auth.getUserIdentity();
+    // const identity = await ctx.auth.getUserIdentity();
 
-    if (!identity) {
-      throw new Error("Not authenticated");
-    }
+    // if (!identity) {
+    //   throw new Error("Not authenticated");
+    // }
 
-    const userId = identity.subject;
+    // const userId = identity.subject;
 
-    const existingDocument = await ctx.db.get(args.documentId);
+    // const existingDocument = await ctx.db.get(args.Id);
 
-    if (!existingDocument) {
-      throw new Error("Not found")
-    }
+    // if (!existingDocument) {
+    //   throw new Error("Not found")
+    // }
 
-    if (existingDocument.userId !== userId) {
-      throw new Error("Unauthorised");
-    }
+    // if (existingDocument.userId !== userId) {
+    //   throw new Error("Unauthorised");
+    // }
 
-    return await ctx.storage.getUrl(args.storageId as Id<"_storage">);
+    console.log("THIS IS THE getFileUrl FUNCTION");
+
+    const url = await ctx.storage.getUrl(args.storageId);
+
+    console.log(url);
+
+    return url;
   },
 });
 
@@ -493,6 +498,20 @@ export const deleteCoverImageFile = mutation({
     return await ctx.storage.delete(existingDocument.coverImage as Id<"_storage">);
   },
 });
+
+export const getUserId = query({
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
+
+    const userId = identity.subject;
+
+    return userId;
+  }
+})
 
 // export const createFolder = mutation({
 //   args: {

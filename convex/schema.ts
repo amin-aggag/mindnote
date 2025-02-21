@@ -27,4 +27,14 @@ export default defineSchema({
   })
     .index("by_user", ["userId"])
     .index("by_storage_id", ["storageId"]),
+  sources: defineTable({
+    userId: v.string(),
+    title: v.string(),
+    // isArchived: v.boolean(),
+    description: v.optional(v.string()),
+    content: v.optional(v.string()),
+    icon: v.optional(v.string()),
+    isPublished: v.boolean()
+  })
+    .index("by_user", ["userId"]),
 })

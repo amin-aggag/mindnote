@@ -203,6 +203,7 @@ export const Navigation = () => {
           /> */}
         </div>
         <div className="mt-4">
+          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground">Pages</p>
           <DocumentList/>
           <Item
           onClick={handleCreatePage}

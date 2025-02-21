@@ -31,7 +31,7 @@ const DocumentIdPage = ({
     documentId: currentDocumentId,
   });
 
-  const documentUrl = useQuery(api.documents.getCoverImageUrl, {
+  const coverImageUrl = useQuery(api.documents.getCoverImageUrl, {
     documentId: use(params).documentId,
   });
 
@@ -69,7 +69,7 @@ const DocumentIdPage = ({
 
   return (
     <div className="pb-40">
-      <Cover url={documentUrl ? documentUrl : undefined}/>
+      <Cover url={coverImageUrl ? coverImageUrl : undefined}/>
       <div className="md:max-w-3xl lg:max-w-4xl mx-auto">
         <Toolbar initialData={document} />
         <Editor
