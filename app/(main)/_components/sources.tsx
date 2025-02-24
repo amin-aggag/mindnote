@@ -15,18 +15,25 @@ export const SourcesList = () => {
 
   if (stringifiedSourcesList === undefined) {
     sourcesList = undefined;
+    return (
+      <div></div>
+    )
   }
   else if (stringifiedSourcesList) {
     sourcesList = JSON.parse(stringifiedSourcesList);
+    console.log("stringifiedList = " + sourcesList);
+    console.log(sourcesList);
+
+    // i is for the key so that React does not throw an error that a unique key is not given. - Amin 24/2/25
+    let i = 0;
+
+    return (
+      <div>
+        {sourcesList.map((source: Source) => (
+          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground" key={i++}>{source.sourceName}</p>
+        ))}
+      </div>
+    )
   }
 
-  console.log("sourcseList = " + sourcesList);
-
-  return (
-    <div>
-      { sourcesList ? sourcesList.map((source: Source) => (
-        <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground">{source.sourceName}</p>
-      )) : <div></div>}
-    </div>
-  )
 }

@@ -59,7 +59,7 @@ a user has 2 records in the database (there should only be 1 for each user) is a
 authentication.
 */
 export const addSource = mutation({
-  args: { sourceName: v.string(),
+  args: { infoOfNewSource: v.string(),
     storageId: v.id("_storage")},
   handler: async (ctx, args) => {
     const identity = await ctx.auth.getUserIdentity();
@@ -75,12 +75,16 @@ export const addSource = mutation({
     const sourcesList = await ctx.db.query("sources")
     .withIndex("by_user", (q) => q.eq("userId", userId)).collect();
 
+    console.log("sourceName =" + args.infoOfNewSource);
+
+    const infoOfNewSourceObject = JSON.parse(args.infoOfNewSource);
+
     let newSourcesList: Source[]; 
 
     if (!sourcesList[0]) {
-
-      newSourcesList = [{sourceName: args.sourceName, fileUrl: sourceFileUrl, storageId: args.storageId}];
+      newSourcesList = [{sourceName: infoOfNewSourceObject[0].sourceName, fileUrl: sourceFileUrl, storageId: args.storageId}];
       const newSourcesListAsString = JSON.stringify(newSourcesList);
+      console.log(newSourcesListAsString);
 
       const source = await ctx.db.insert("sources", {
         userId: userId,
@@ -97,8 +101,9 @@ export const addSource = mutation({
 
       const sourceId = sourcesList[0]._id;
 
-      newSourcesList = [{sourceName: args.sourceName, fileUrl: sourceFileUrl, storageId: args.storageId}];
+      newSourcesList = [{sourceName: infoOfNewSourceObject[0].sourceName, fileUrl: sourceFileUrl, storageId: args.storageId}];
       const newSourcesListAsString = JSON.stringify(newSourcesList);
+      console.log(newSourcesListAsString);
       const source = await ctx.db.patch(sourceId, {userSourcesList: newSourcesListAsString});
 
       // return source;
@@ -114,8 +119,9 @@ export const addSource = mutation({
       const sourceId = sourcesList[0]._id;
 
       const userSourcesList = JSON.parse(sourcesList[0].userSourcesList);
-      userSourcesList[0].push({sourceName: args.sourceName, fileUrl: sourceFileUrl, storageId: args.storageId});
+      userSourcesList[0].push({sourceName: infoOfNewSourceObject[0].sourceName, fileUrl: sourceFileUrl, storageId: args.storageId});
       const userSourcesListAsString = JSON.stringify(userSourcesList[0]);
+      console.log(userSourcesListAsString);
       const source = await ctx.db.patch(sourceId, {userSourcesList: userSourcesListAsString});
 
       // return source;

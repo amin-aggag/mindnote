@@ -16,6 +16,7 @@ import { api } from "@/convex/_generated/api";
 import { useConvex, useMutation } from "convex/react";
 import { useParams } from "next/navigation";
 import { Id } from "@/convex/_generated/dataModel";
+import { DialogDescription } from "@radix-ui/react-dialog";
 
 type Source = {
   sourceName: string,
@@ -54,7 +55,7 @@ export const AddSourceModal = () => {
     // Step 3: Save the newly allocated storage id to the database
     const sourcesList = [{storageId: storageId, sourceName: selectedPDF ? selectedPDF.name : ""}];
     const stringifiedSourcesList = JSON.stringify(sourcesList);
-    const source = convex.mutation(api.sources.addSource, {storageId: storageId, sourceName: stringifiedSourcesList});
+    const source = convex.mutation(api.sources.addSource, {storageId: storageId, infoOfNewSource: stringifiedSourcesList});
 
     setSelectedPDF(null);
     if (imageInput.current !== null) {
@@ -73,6 +74,8 @@ export const AddSourceModal = () => {
       <VisuallyHidden>
         <DialogTitle></DialogTitle>
       </VisuallyHidden>
+      {/* This DialogDescription is here to prevent an error of it not being included.  - Amin 24/2/25 */}
+      <DialogDescription/>
       <DialogContent>
         <DialogHeader className="border-b pb-3">
           <h2 className="text-lg font-medium">
@@ -89,7 +92,7 @@ export const AddSourceModal = () => {
             <input
               type="file"
               accept=".pdf"
-              // ref={imageInput}
+              ref={imageInput}
               onChange={(event) => setSelectedPDF(event.target.files![0])}
               disabled={selectedPDF !== null}
             />
