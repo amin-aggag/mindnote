@@ -23,6 +23,8 @@ import { TrashBox } from "./trashbox";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
 import { Navbar } from "./navbar";
+import { SourcesList } from "./sources";
+import { useAddSource } from "@/hooks/use-add-source";
 
 // This is sample data.
 const data = {
@@ -51,10 +53,14 @@ const data = {
 export const Navigation = () => {
   const settings = useSettings();
   const search = useSearch();
+  const addSource = useAddSource();
   const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const createPage = useMutation(api.documents.createPage);
+  // const createSource = useMutation(api.sources.addSource, {
+
+  // })
   // const createFolder = useMutation(api.documents.createFolder);
 
   const isResizingRef = useRef<boolean>(false);
@@ -148,6 +154,16 @@ export const Navigation = () => {
     })
   }
 
+  // const handleCreateSource = () => {
+  //   const promise = createSource( {title: "Untitled page"});
+
+  //   toast.promise(promise, {
+  //     loading: "Creating a new note...",
+  //     success: "New note created!",
+  //     error: "Failed to create a new note."
+  //   })
+  // }
+
   // const handleCreateFolder = () => {
   //   const promise = createFolder( {title: "Untitled folder"});
 
@@ -210,6 +226,15 @@ export const Navigation = () => {
           icon={Plus}
           label="Add a page"
           />
+          <div className="mt-3">
+          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground">Sources</p>
+          <SourcesList/>
+          <Item
+          onClick={addSource.onOpen}
+          icon={Plus}
+          label="Add a source"
+          />
+          </div>
           <Popover>
             <PopoverTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash} />

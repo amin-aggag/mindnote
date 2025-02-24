@@ -8,6 +8,7 @@ import React from "react";
 import { Navigation } from "./_components/navigation";
 import { SearchCommand } from "@/components/search-command";
 import { PDFView } from "@/components/ui/pdfView";
+import { EmbedPDF } from '@simplepdf/react-embed-pdf';
 
 const MainLayout = ({
   children
@@ -35,7 +36,7 @@ const MainLayout = ({
         <SearchCommand/>
         {children}
       </main>
-      <PDFView className="mt-40 flex-1 h-[auto] overflow-y-auto"/>
+      <PDFView className="flex-1 h-[auto] overflow-y-auto"/>
     </div>
    );
 }

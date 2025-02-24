@@ -382,23 +382,11 @@ export const getFileUrl = query({
     storageId: v.id("_storage")
   },
   handler: async (ctx, args) => {
-    // const identity = await ctx.auth.getUserIdentity();
+    const identity = await ctx.auth.getUserIdentity();
 
-    // if (!identity) {
-    //   throw new Error("Not authenticated");
-    // }
-
-    // const userId = identity.subject;
-
-    // const existingDocument = await ctx.db.get(args.Id);
-
-    // if (!existingDocument) {
-    //   throw new Error("Not found")
-    // }
-
-    // if (existingDocument.userId !== userId) {
-    //   throw new Error("Unauthorised");
-    // }
+    if (!identity) {
+      throw new Error("Not authenticated");
+    }
 
     console.log("THIS IS THE getFileUrl FUNCTION");
 
@@ -511,7 +499,7 @@ export const getUserId = query({
 
     return userId;
   }
-})
+});
 
 // export const createFolder = mutation({
 //   args: {
