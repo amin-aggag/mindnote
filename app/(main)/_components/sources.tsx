@@ -1,5 +1,6 @@
 import { api } from "@/convex/_generated/api"
 import { Id } from "@/convex/_generated/dataModel"
+import { useViewSource } from "@/hooks/use-view-source"
 import { useQuery } from "convex/react"
 
 type Source = {
@@ -10,6 +11,7 @@ type Source = {
 
 export const SourcesList = () => {
   const stringifiedSourcesList = useQuery(api.sources.getSourcesList);
+  const viewSource = useViewSource();
 
   let sourcesList;
 
@@ -30,7 +32,7 @@ export const SourcesList = () => {
     return (
       <div>
         {sourcesList.map((source: Source) => (
-          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground" key={i++}>{source.sourceName}</p>
+          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground cursor-pointer" key={i++} onClick={viewSource.toggle}>{source.sourceName}</p>
         ))}
       </div>
     )

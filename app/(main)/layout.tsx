@@ -8,7 +8,8 @@ import React from "react";
 import { Navigation } from "./_components/navigation";
 import { SearchCommand } from "@/components/search-command";
 import { PDFView } from "@/components/ui/pdfView";
-import { EmbedPDF } from '@simplepdf/react-embed-pdf';
+// import { EmbedPDF } from '@simplepdf/react-embed-pdf';
+import { useViewSource } from "@/hooks/use-view-source";
 
 const MainLayout = ({
   children
@@ -16,6 +17,7 @@ const MainLayout = ({
   children: React.ReactNode
 }) => {
   const { isAuthenticated, isLoading } = useConvexAuth();
+  const viewSource = useViewSource();
 
   if (isLoading) {
     return (
@@ -36,7 +38,7 @@ const MainLayout = ({
         <SearchCommand/>
         {children}
       </main>
-      <PDFView className="flex-1 h-[auto] overflow-y-auto"/>
+      {viewSource.isOpen ? <PDFView className="flex-1 h-[auto] overflow-y-auto"/> : null}
     </div>
    );
 }
