@@ -118,9 +118,9 @@ export const addSource = mutation({
 
       const sourceId = sourcesList[0]._id;
 
-      const userSourcesList = JSON.parse(sourcesList[0].userSourcesList);
+      const userSourcesList: Source[] = JSON.parse(sourcesList[0].userSourcesList);
       userSourcesList.push({sourceName: infoOfNewSourceObject[0].sourceName, fileUrl: sourceFileUrl, storageId: args.storageId});
-      const userSourcesListAsString = JSON.stringify(userSourcesList[0]);
+      const userSourcesListAsString = JSON.stringify(userSourcesList);
       console.log(userSourcesListAsString);
       const source = await ctx.db.patch(sourceId, {userSourcesList: userSourcesListAsString});
 

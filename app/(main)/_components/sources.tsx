@@ -32,7 +32,12 @@ export const SourcesList = () => {
     return (
       <div>
         {sourcesList.map((source: Source) => (
-          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground cursor-pointer" key={i++} onClick={viewSource.toggle}>{source.sourceName}</p>
+          <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground cursor-pointer" key={i++} onClick={() => {
+            if (viewSource.fileBeingViewedUrl === source.fileUrl || viewSource.isOpen === false) {
+              viewSource.toggle();
+            }
+            viewSource.setFileBeingViewed(source.fileUrl);
+          }}>{source.sourceName}</p>
         ))}
       </div>
     )
