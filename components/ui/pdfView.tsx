@@ -7,7 +7,7 @@ import { useConvex, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
 import { PdfComp } from "./pdfComp";
-import { EmbedPDF } from '@simplepdf/react-embed-pdf';
+// import { EmbedPDF } from '@simplepdf/react-embed-pdf';
 import { useViewSource } from "@/hooks/use-view-source";
 import PdfViewer from "./pdfjsviewer";
 // import { pdfjs } from 'react-pdf';
@@ -47,13 +47,13 @@ export const PDFView = ({ className }: {className: string}) => {
     }
 
     return (
-      // <div className={className}>
-      //   <object data={`${fileBeingViewedUrl}`} type="application/pdf" className="pt-8 h-[100%] w-[100%]">
-      //     <p>Alternative text - include a link <a href={`${fileBeingViewedUrl}`}>to the PDF!</a></p>
-      //   </object>
-      // </div>
+      <div className={className} style={{marginTop: "20px"}}>
+        <object data={`${fileBeingViewedUrl}`} type="application/pdf" className="pt-8 h-[100%] w-[100%]">
+          <p>Alternative text - include a link <a href={`${fileBeingViewedUrl}`}>to the PDF!</a></p>
+        </object>
+      </div>
       // <PdfViewer url={`${fileBeingViewedUrl}`}/>
-      <PdfComp pdfUrl={`${fileBeingViewedUrl}`}/>
+      // <PdfComp pdfUrl={`${fileBeingViewedUrl}`}/>
     )
   }
 }

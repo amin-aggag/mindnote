@@ -37,7 +37,7 @@ export const SettingsModal = () => {
               Appearance
             </Label>
             <span className="text-[0.8rem] text-muted-foreground">
-              Customise how IlmMind looks on your device
+              Customise how MindNote looks on your device
             </span>
           </div>
           <ModeToggle/>

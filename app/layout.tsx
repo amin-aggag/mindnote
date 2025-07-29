@@ -22,8 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IlmMind",
-  description: "The second brain app built for Islamic knowledge.",
+  title: "MindNote",
+  description: "The second brain app built for note taking.",
   icons: {
     icon: [
       {

@@ -85,7 +85,7 @@ export const AddSourceModal = () => {
         <div className="flex items-center justify-between">
           <div className="flex flex-col gap-y-1">
             <span className="text-[0.8rem] text-muted-foreground">
-              Upload a PDF to be used <br/> as a source of knowledge in <br/> IlmMind
+              Upload a PDF to be used <br/> as a source of knowledge in <br/> MindNote
             </span>
           </div>
             <form onSubmit={handleAddSource}>

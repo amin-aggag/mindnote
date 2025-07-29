@@ -65,7 +65,7 @@ export const SearchCommand = () => {
         <DialogTitle></DialogTitle>
       </VisuallyHidden>
       <CommandInput
-        placeholder={`Search ${user?.fullName}'s IlmMind...`}
+        placeholder={`Search ${user?.fullName}'s MindNote...`}
         />
       <CommandList>
         <CommandEmpty>No results found</CommandEmpty>

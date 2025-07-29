@@ -13,10 +13,10 @@ export const Heading = () => {
 return (
   <div className="max-w-3xl space-y-4">
       <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
-        All of your Islamic knowledge, all in one place. Welcome to <span className="underline text-transparent bg-clip-text bg-gradient-to-r from-[#7ec256] to-[#71b8cc]">IlmMind</span>
+        All of your knowledge, all in one place. Welcome to <span className="underline text-transparent bg-clip-text bg-gradient-to-r from-[#7ec256] to-[#71b8cc]">MindNote</span>
       </h1>
       <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-        IlmMind is the space where<br/>
+        MindNote is the space where<br/>
         everything you learn is interconnected.
       </h3>
       {isLoading && (
@@ -27,7 +27,7 @@ return (
       {isAuthenticated && !isLoading && (
         <Button asChild>
           <Link href="/documents">
-            Enter IlmMind
+            Enter MindNote
             <ArrowRight className="h-4 w-4 ml-2"></ArrowRight>
            </Link>
       </Button>
@@ -35,7 +35,7 @@ return (
       {!isAuthenticated && !isLoading && (
         <SignInButton mode="modal">
           <Button>
-            Try IlmMind for free
+            Try MindNote for free
             <ArrowRight className="h-4 w-4 ml-2"/>
           </Button>
         </SignInButton>

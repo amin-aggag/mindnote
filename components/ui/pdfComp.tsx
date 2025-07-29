@@ -6,9 +6,9 @@ import React from 'react';
 import { useConvex, useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import { pdfjs } from 'react-pdf';
+// import { pdfjs } from 'react-pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = "../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs";
+// pdfjs.GlobalWorkerOptions.workerSrc = "../../node_modules/pdfjs-dist/build/pdf.worker.min.mjs";
 
 export const PdfComp = ({ pdfUrl }: {pdfUrl: string | null | undefined}) => {
   const [numPages, setNumPages] = useState<Number>();

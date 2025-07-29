@@ -30,7 +30,7 @@ export const Navbar = () => {
               </SignInButton>
               <SignInButton mode="modal">
                 <Button size="sm">
-                  Try IlmMind for free
+                  Try MindNote for free
                 </Button>
               </SignInButton>
             </div>
@@ -41,7 +41,7 @@ export const Navbar = () => {
           {/* Look up online later what asChild does to the button */}
             <Button variant="ghost" size="sm" asChild>
               <Link href="/documents">
-                Enter IlmMind
+                Enter MindNote
               </Link>
             </Button>
             <UserButton afterSignOutUrl="/"/>
