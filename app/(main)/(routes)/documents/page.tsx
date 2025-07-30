@@ -25,20 +25,6 @@ const DocumentsPage = () => {
 
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-4">
-      <Image
-        src="/Trash_empty_light.svg"
-        height="300"
-        width="300"
-        alt="Empty"
-        className="dark:hidden"
-      />
-      <Image
-        src="/Trash_empty_dark.svg"
-        height="300"
-        width="300"
-        alt="Empty"
-        className="hidden dark:block"
-      />
       <h2 className="text-lg font-medium">
         Welcome to {user?.firstName}&apos;s MindNote
       </h2>
