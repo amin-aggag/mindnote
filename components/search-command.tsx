@@ -66,7 +66,7 @@ export const SearchCommand = () => {
       </VisuallyHidden>
       <CommandInput
         placeholder={`Search ${user?.fullName}'s MindNote...`}
-        />
+      />
       <CommandList>
         <CommandEmpty>No results found</CommandEmpty>
         <CommandGroup heading="documents">
