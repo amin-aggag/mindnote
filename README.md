@@ -1,4 +1,4 @@
-# IlmMind - The second brain app made for Islamic knowledge
+# MindNote - The second brain app made for note taking.
 
 How to run my app:
 

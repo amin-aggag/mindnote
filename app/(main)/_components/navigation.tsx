@@ -226,7 +226,7 @@ export const Navigation = () => {
           icon={Plus}
           label="Add a page"
           />
-          <div className="mt-3">
+          {/* <div className="mt-3">
           <p className="font-medium text-sm ml-4 mb-0.5 text-muted-foreground">Sources</p>
           <SourcesList/>
           <Item
@@ -234,7 +234,7 @@ export const Navigation = () => {
           icon={Plus}
           label="Add a source"
           />
-          </div>
+          </div> */}
           <Popover>
             <PopoverTrigger className="w-full mt-4">
               <Item label="Trash" icon={Trash} />
