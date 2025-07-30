@@ -1,7 +1,7 @@
 export default {
   providers: [
     {
-      domain: "https://known-moray-56.clerk.accounts.dev",
+      domain: "https://clerk.sensible-labrador-447.convex.cloud",
       applicationID: "convex",
     },
   ]
