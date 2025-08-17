@@ -49,7 +49,7 @@ Make a new Convex account [here](https://dashboard.convex.dev/login), create a n
 Run `npx convex dev`
 
 Open a second terminal and run `npm run dev`
-The app should now be working on `localhost:3000`!
+The app should now be working on `https://localhost:3000`!
 
 ## Notes on this project
 
