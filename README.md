@@ -39,4 +39,4 @@ The app should now be working on `localhost:3000`!
 
 ## Notes on this project
 
-This project was taken from a YouTube tutorial that was intended to teach how to build a Notion clone. As such, the way this code is organised is not necessarily how I would organise this codebase.
+This project was taken from a YouTube tutorial that was intended to teach how to build a Notion clone. As such, the way this code is organised is not necessarily how I would organise this codebase. I intended to add some features in addition to the tutorial's code, which is evident in some of my commits, but I have got rid of them for now to make the code more presentable as those features were not finished yet and those components were not yet optimised for UI design.
