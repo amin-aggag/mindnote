@@ -27,9 +27,13 @@ TailwindCSS and ShadCN UI for a pleasant UI and UX
 ## Running the app locally
 
 Clone the repository: `git clone <repository link>`
+
 Run `npm i`
+
 Add environment variables for Clerk and Convex in `env.local`
+
 Run `npx convex start`
+
 Open a second terminal and run `npm run dev`
 The app should now be working on `localhost:3000`!
 
