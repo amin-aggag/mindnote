@@ -42,9 +42,9 @@ Clone the repository: `git clone <repository link>`
 
 Run `npm i`
 
-Set up Clerk and add its environment variables in `env.local` by following steps 1-9 in the following documentation article, replacing each variable's `VITE` word with `NEXT`: [Convex & Clerk | Convex Developer Hub](https://docs.convex.dev/auth/clerk)
+Set up Clerk and add its environment variables in `.env.local` by following steps 1-9 in the following documentation article, replacing each variable's `VITE` word with `NEXT`: [Convex & Clerk | Convex Developer Hub](https://docs.convex.dev/auth/clerk)
 
-Make a new Convex account [here](https://dashboard.convex.dev/login), create a new project and add the CONVEX_DEPLOYMENT environment variable in `env.local`, setting it to the new Convex project's development url
+Make a new Convex account [here](https://dashboard.convex.dev/login), create a new project and add the CONVEX_DEPLOYMENT environment variable in `.env.local`, setting it to the new Convex project's development url
 
 Run `npx convex dev`
 
