@@ -40,7 +40,7 @@ Run `npm i`
 
 Set up Clerk and add its environment variables in `env.local ` by following steps 1-9 in the following documentation article, replacing each variable's `VITE` word with `NEXT`: [Convex & Clerk | Convex Developer Hub](https://docs.convex.dev/auth/clerk)
 
-Make a new Convex account [here](https://convex.dev), create a new project and add the CONVEX_DEPLOYMENT environment variable in `env.local`, setting it to that project's deployment url
+Make a new Convex account [here](https://dashboard.convex.dev/login), create a new project and add the CONVEX_DEPLOYMENT environment variable in `env.local`, setting it to the new Convex project's development url
 
 Run `npx convex dev`
 
@@ -49,4 +49,4 @@ The app should now be working on `localhost:3000`!
 
 ## Notes on this project
 
-This project was taken from a YouTube tutorial that was intended to teach how to build a Notion clone. I have another project that is completely my own that you can check out [here](https://github.com/amin-aggag/drawing-notepad). Since the way this code is organised is not necessarily how I would organise this codebase. I intended to add some features in addition to the tutorial's code, which is evident in some of my commits, but I have got rid of them for now to make the code more presentable as those features were not finished yet and those components were not yet optimised for UI design.
+This project was taken from a YouTube tutorial that was intended to teach how to build a Notion clone. I have another project that is completely my own that you can check out [here](https://github.com/amin-aggag/drawing-notepad). Since most of the code comes from a tutorial, the way this code is organised is not necessarily how I would organise this codebase, although it is organised quite well. I intended to add some features in addition to the tutorial's code, which is evident in some of my commits, but I have got rid of them for now to make the code more presentable as those features were not finished yet and those components were not yet optimised for UI design.
