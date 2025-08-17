@@ -1,5 +1,9 @@
 # MindNote - A simple web-based note-taking app
 
+![MindNote Preview Image](/public/MindNote%20Preview%20Image.png)
+
+![MindNote Note Editing Page](public/MindNote%20Note%20Editing%20Page.png)
+
 ## Technologies used:
 
 Next.js
