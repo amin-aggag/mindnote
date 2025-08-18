@@ -26,7 +26,7 @@ SOLID principles, including Single-Responsibility
 
 ## Features
 
-📜 A notion-style editor, complete with / commands, rich text edtiing, highlighting, etc. as well as the ability to add images
+📜 A notion-style editor, complete with / commands, rich text editing, highlighting, etc. as well as the ability to add images
 
 🗑️ Ability to add notes to trash and restore from trash or remove them permanently
 
